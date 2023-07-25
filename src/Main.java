@@ -65,10 +65,9 @@ public class Main {
 
         String filePath = "matches.csv";
         String line;
-        BufferedReader reader;
 
        try{
-           reader = new BufferedReader(new FileReader(filePath));
+           BufferedReader  reader = new BufferedReader(new FileReader(filePath));
            reader.readLine();
 
            while((line = reader.readLine()) != null){
@@ -94,12 +93,12 @@ public class Main {
                   match.setUmpireOne(fields[UMPIRE1]);
                   match.setUmpireTwo(fields[UMPIRE2]);
                   match.setUmpireThree(fields[UMPIRE3]);
-                  reader.close();
-              }catch(IOException e){
-                  e.printStackTrace();
+              }catch(Exception e){
+                  //e.printStackTrace();
               }
                matches.add(match);
            }
+           reader.close();
        }catch(IOException e){
            e.printStackTrace();
     }
@@ -110,9 +109,8 @@ public class Main {
         List<Delivery> deliveries = new ArrayList<>();
         String filePath = "deliveries.csv";
         String line;
-        BufferedReader reader;
         try{
-            reader = new BufferedReader(new FileReader(filePath));
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
             reader.readLine();
 
             while((line = reader.readLine()) != null){
@@ -142,12 +140,12 @@ public class Main {
                     delivery.setPlayerDismissed(fields[PLAYER_DISMISSED]);
                     delivery.setPlayerDismissalKind(fields[DISMISSED_KIND]);
                     delivery.setFielder(fields[FIELDER]);
-                    reader.close();
-                }catch(IOException e){
-                  e.printStackTrace();
+                }catch(Exception e){
+                 // e.printStackTrace();
                 }
                 deliveries.add(delivery);
             }
+            reader.close();
         }catch(IOException e){
                 e.printStackTrace();
     }
